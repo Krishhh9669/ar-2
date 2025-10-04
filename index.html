@@ -1,28 +1,16 @@
 <!doctype html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.1/aframe/build/aframe-ar.js"></script>
-</head>
-<body style="margin:0;overflow:hidden">
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-    <a-assets>
-      <video id="vid" src="video for camp (1)" loop crossorigin="anonymous" playsinline webkit-playsinline muted></video>
-    </a-assets>
-
-    <a-marker type="pattern" url="Exp.patt">
-      <a-video src="#vid" rotation="-90 0 0" width="1" height="0.56" position="0 0 0"></a-video>
-    </a-marker>
-
-    <a-entity camera></a-entity>
-  </a-scene>
-
-  <script>
-    const marker = document.querySelector('a-marker');
-    const vid = document.getElementById('vid');
-    marker.addEventListener('markerFound', ()=> vid.play().catch(()=>{}));
-    marker.addEventListener('markerLost', ()=> vid.pause());
-  </script>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.1/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin:0;overflow:hidden">
+    <a-scene embedded arjs>
+      <a-marker preset="hiro">
+        <a-box position="0 0.5 0" material="color: red;"></a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
